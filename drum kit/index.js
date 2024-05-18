@@ -1,16 +1,23 @@
-const keys=document.querySelectorAll('.key')
- window.addEventListener('keydown',function(e){   
-  const key=document.querySelector(`.key[data-key="${e.keyCode}"]`)
+
+
+const keys=document.querySelector('h4')
+
+console.log(keys);
+
+ window.addEventListener('keydown',function(e){  
+  keys.innerHTML=e.key
+
     const audio=document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    key.classList.add('playing')
+    keys.classList.add('playing')
 
 audio.play()
-keys.forEach(key => key.addEventListener('transitionend', function() {
-  this.classList.remove('playing')}))
+}) 
+keys.addEventListener('transitionend', function() {
+  this.classList.remove('playing')})
 
 
-        
-    })
+  
+
 
   
 
